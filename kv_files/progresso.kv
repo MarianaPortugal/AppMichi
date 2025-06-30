@@ -1,0 +1,34 @@
+
+<ProgressoScreen>
+    canvas.before:
+        Color:
+            rgba: 1.00, 0.42, 0.42, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    name: 'progresso'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(10)
+
+        Label:
+            text: "Progresso da Criança"
+            font_size: sp(20)
+            size_hint_y: None
+            height: dp(40)
+
+        ScrollView:
+            BoxLayout:
+                id: progresso_layout
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(5)
+
+        Button:
+            text: "Voltar"
+            size_hint_y: None
+            height: dp(50)
+            on_press: root.manager.current = 'home'

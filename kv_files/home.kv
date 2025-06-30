@@ -1,0 +1,143 @@
+<Button>:
+    font_size: sp(16)
+    size_hint_y: None
+    height: dp(45)
+
+<HomeScreen>:
+    name: 'home'
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.9, 0.95, 1.0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: dp(20)
+            spacing: dp(15)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint: 0.9, 0.9
+
+            ScalableImage:
+                id: michi_image
+                source: 'assets/imagens/michi.png'
+                size_hint: None, None
+                size: dp(150), dp(150)
+                pos_hint: {'center_x': 0.5}
+                allow_stretch: True
+                keep_ratio: True
+
+            Label:
+                id: welcome_label
+                text: 'Olá! Eu sou o Michi! Vamos começar uma nova aventura?'
+                font_size: sp(16)
+                text_size: self.width, None
+                halign: 'center'
+                valign: 'middle'
+                size_hint_y: None
+                height: dp(60)
+                color: 0.2, 0.2, 0.2, 1
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(10)
+                size_hint_y: None
+                height: dp(150)
+
+                Button:
+                    text: 'Escolher Tema 🎯'
+                    background_color: 0.3, 0.7, 0.9, 1
+                    on_press: root.ir_para_temas()
+
+                Button:
+                    text: 'Enviar Comprovação 📤'
+                    background_color: 0.5, 0.8, 0.5, 1
+                    on_press: root.enviar_comprovante()
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: dp(40)
+                padding: dp(10)
+                spacing: dp(10)
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 0.7
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [15]
+
+                Label:
+                    text: '🎯'
+                    font_size: sp(20)
+                    size_hint_x: None
+                    width: dp(30)
+                    color: 0.2, 0.2, 0.2, 1
+
+                Label:
+                    id: progresso_rapido
+                    text: 'Progresso: 0/0 vídeos'
+                    font_size: sp(12)
+                    color: 0.4, 0.4, 0.4, 1
+                    halign: 'left'
+                    text_size: self.size
+
+            Widget:
+                size_hint_y: 0.1
+
+        Button:
+            text: '?'
+            size_hint: None, None
+            size: dp(50), dp(50)
+            pos_hint: {'right': 0.95, 'top': 0.95}
+            background_color: 0.3, 0.6, 0.9, 0.8
+            font_size: sp(20)
+            on_press: root.mostrar_ajuda()
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Ellipse:
+                    pos: self.pos
+                    size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: None, None
+            size: dp(100), dp(30)
+            pos_hint: {'x': 0.05, 'top': 0.95}
+            spacing: dp(5)
+
+            Label:
+                text: '●'
+                font_size: sp(16)
+                color: 0.3, 0.8, 0.3, 1
+                size_hint_x: None
+                width: dp(20)
+
+            Label:
+                text: 'Online'
+                font_size: sp(12)
+                color: 0.4, 0.4, 0.4, 1
+                halign: 'left'
+                text_size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: dp(70)
+            spacing: dp(10)
+            pos_hint: {'center_x': 0.5}
+
+            Image:
+                source: 'assets/imagens/michi_pensando.png'
+                size_hint: None, None
+                size: dp(60), dp(60)
+                allow_stretch: True
+
+            Button:
+                text: 'Área dos Pais 🔒'
+                font_size: sp(16)
+                on_press: app.root.get_screen('progresso').verificar_senha()

@@ -1,0 +1,65 @@
+<DesafioScreen>
+    canvas.before:
+        Color:
+            rgba: 0.77, 0.30, 0.35, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    canvas.before:
+        Color:
+            rgba: 0.78, 0.96, 0.39, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    name: 'desafio'
+    
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1.0, 0.95, 0.9, 1  # Fundo laranja claro
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        
+        BoxLayout:
+            orientation: 'vertical'
+            padding: dp(20)
+            spacing: dp(20)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint: 0.9, 0.9
+            
+            # Título do tema
+            Label:
+                id: title_label
+                text: 'Desafios'
+                font_size: sp(20)
+                size_hint_y: None
+                height: dp(50)
+                color: 0.2, 0.2, 0.2, 1
+                bold: True
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+            
+            # Container para os botões de desafios
+            ScrollView:
+                size_hint_y: 0.7
+                
+                BoxLayout:
+                    id: desafios_container
+                    orientation: 'vertical'
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: dp(10)
+            
+            # Botão voltar
+            Button:
+                text: 'Voltar aos Temas 🔙'
+                size_hint_y: None
+                height: dp(45)
+                background_color: 0.6, 0.6, 0.6, 1
+                font_size: sp(16)
+                on_press: root.voltar_temas()

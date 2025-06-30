@@ -1,0 +1,52 @@
+
+<PerfilScreen>:
+    name: 'perfil'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(30)
+        spacing: dp(20)
+
+        canvas.before:
+            Color:
+                rgba: 0.9, 0.95, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Bem-vindo ao Michi!"
+            font_size: sp(24)
+            size_hint_y: None
+            height: dp(40)
+            color: 0.2, 0.2, 0.2, 1
+
+        Image:
+            source: 'assets/imagens/michi.png'  # Altere se necessário
+            size_hint: None, None
+            size: dp(120), dp(120)
+            allow_stretch: True
+            keep_ratio: True
+            pos_hint: {'center_x': 0.5}
+
+        Label:
+            text: "Qual é o seu nome?"
+            font_size: sp(18)
+            size_hint_y: None
+            height: dp(30)
+            color: 0.2, 0.2, 0.2, 1
+
+        TextInput:
+            id: nome_input
+            multiline: False
+            hint_text: "Digite aqui..."
+            font_size: sp(16)
+            size_hint_y: None
+            height: dp(45)
+
+        Button:
+            text: "Começar!"
+            size_hint_y: None
+            height: dp(50)
+            background_color: 0.4, 0.8, 0.4, 1
+            font_size: sp(16)
+            on_press: root.salvar_nome()

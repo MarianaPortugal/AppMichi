@@ -1,0 +1,66 @@
+
+<TemasScreen>:
+    name: 'temas'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(10)
+
+        canvas.before:
+            Color:
+                rgba: 0.31, 0.80, 0.77, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Image:
+            source: 'assets/imagens/michi_livro.png'
+            size_hint: None, None
+            size: dp(120), dp(120)
+            pos_hint: {'center_x': 0.5}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text: "Escolha um tema para aprender!"
+            font_size: sp(20)
+            size_hint_y: None
+            height: dp(40)
+            color: 0.2, 0.2, 0.2, 1
+
+        BoxLayout:
+            size_hint_y: None
+            height: dp(50)
+            spacing: dp(10)
+
+            Button:
+                text: 'Animais 🐶'
+                on_press: root.carregar_videos('animais')
+
+            Button:
+                text: 'Cores 🌈'
+                on_press: root.carregar_videos('cores')
+
+            Button:
+                text: 'Números 🔢'
+                on_press: root.carregar_videos('numeros')
+
+        ScrollView:
+            BoxLayout:
+                id: tema_layout
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(10)
+
+        Button:
+            text: 'Submeter Atividade ✅'
+            size_hint_y: None
+            height: dp(50)
+            on_press: root.submeter_atividade()
+
+        Button:
+            text: 'Voltar 🏠'
+            size_hint_y: None
+            height: dp(45)
+            on_press: root.manager.current = 'home'

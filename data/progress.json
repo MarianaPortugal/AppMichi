@@ -1,1 +1,38 @@
-{"current_video": 3}
+{
+    "animais": {
+        "animais_1": {
+            "watched": true,
+            "submitted": true
+        },
+        "animais_2": {
+            "watched": false,
+            "submitted": false
+        }
+    },
+    "cores": {
+        "cores_1": {
+            "watched": true,
+            "submitted": false
+        },
+        "cores_2": {
+            "watched": false,
+            "submitted": false
+        }
+    },
+    "numeros": {
+        "numeros_1": {
+            "watched": true,
+            "submitted": true
+        },
+        "numeros_2": {
+            "watched": false,
+            "submitted": false
+        }
+    },
+    "michi": {
+        "michi_sorrindo": {
+            "watched": false,
+            "submitted": true
+        }
+    }
+}
